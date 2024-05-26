@@ -1,8 +1,17 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { Chart, TimeScale, LinearScale, LineController, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
+import 'chartjs-adapter-date-fns';
+
+// Register components
+Chart.register(TimeScale, LinearScale, LineController, LineElement, PointElement, Title, Tooltip, Legend, zoomPlugin);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
