@@ -12,19 +12,19 @@ const App = () => {
   const [fuelData, setFuelData] = useState([]);
 
   useEffect(() => {
+    const loadInitialFile = () => {
+      Papa.parse(initialFile, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: (results) => {
+          handleFileLoaded(results.data);
+        },
+      });
+    };
+
     loadInitialFile();
   }, []);
-
-  const loadInitialFile = () => {
-    Papa.parse(initialFile, {
-      download: true,
-      header: true,
-      dynamicTyping: true,
-      complete: (results) => {
-        handleFileLoaded(results.data);
-      },
-    });
-  };
 
   const handleFileLoaded = (data) => {
     const formattedData = data.map((entry) => ({
