@@ -1,15 +1,31 @@
-// src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Papa from 'papaparse';
 import FuelGraph from './components/FuelGraph';
 import AnalysisResults from './components/AnalysisResults';
 import FileUpload from './components/FileUpload';
 import './App.css';
+import initialFile from './data/data.csv';
 
 const App = () => {
   const [fuelData, setFuelData] = useState([]);
 
+  useEffect(() => {
+    loadInitialFile();
+  }, []);
+
+  const loadInitialFile = () => {
+    Papa.parse(initialFile, {
+      download: true,
+      header: true,
+      dynamicTyping: true,
+      complete: (results) => {
+        handleFileLoaded(results.data);
+      },
+    });
+  };
+
   const handleFileLoaded = (data) => {
-    const formattedData = data.map(entry => ({
+    const formattedData = data.map((entry) => ({
       gpsLedgerId: entry.gpsLedgerId,
       currentFuelLevel: entry.currentFuelLevel,
       isIgnitionOn: entry.isIgnitionOn,

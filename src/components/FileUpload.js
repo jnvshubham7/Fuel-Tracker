@@ -1,4 +1,3 @@
-// src/components/FileUpload.js
 import React from 'react';
 import Papa from 'papaparse';
 
@@ -17,8 +16,30 @@ const FileUpload = ({ onFileLoaded }) => {
   };
 
   return (
-    <div>
-      <input type="file" accept=".csv" onChange={handleFileChange} />
+    <div style={{ margin: '20px 0' }}>
+      <input
+        type="file"
+        accept=".csv"
+        onChange={handleFileChange}
+        style={{ display: 'none' }}
+        id="upload-file"
+      />
+      <label htmlFor="upload-file">
+        <span
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            display: 'inline-block',
+          }}
+        >
+          Upload New CSV
+        </span>
+      </label>
     </div>
   );
 };
