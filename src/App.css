@@ -16,18 +16,29 @@
 .top-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 80%;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .card {
   background-color: #444;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   margin: 10px;
-  flex: 1 1 calc(50% - 20px);
+  flex: 1 1 calc(45% - 20px);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.graph-card {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
 }
 
 h1 {
@@ -58,7 +69,14 @@ td {
   text-align: center;
 }
 
-.graph-card {
-  width: 100%;
-  max-width: 800px;
+@media (max-width: 768px) {
+  .top-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
 }
