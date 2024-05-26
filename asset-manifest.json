@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/jnvshubham7/fuel-data-analysis/static/css/main.76ac243b.css",
-    "main.js": "/jnvshubham7/fuel-data-analysis/static/js/main.332b5b52.js",
-    "static/js/453.5c22997c.chunk.js": "/jnvshubham7/fuel-data-analysis/static/js/453.5c22997c.chunk.js",
-    "static/media/data.csv": "/jnvshubham7/fuel-data-analysis/static/media/data.90a2d351cf412c9cc78e.csv",
-    "index.html": "/jnvshubham7/fuel-data-analysis/index.html",
-    "main.76ac243b.css.map": "/jnvshubham7/fuel-data-analysis/static/css/main.76ac243b.css.map",
-    "main.332b5b52.js.map": "/jnvshubham7/fuel-data-analysis/static/js/main.332b5b52.js.map",
-    "453.5c22997c.chunk.js.map": "/jnvshubham7/fuel-data-analysis/static/js/453.5c22997c.chunk.js.map"
+    "main.css": "/fuel-data-analysis/static/css/main.76ac243b.css",
+    "main.js": "/fuel-data-analysis/static/js/main.03745694.js",
+    "static/js/453.5c22997c.chunk.js": "/fuel-data-analysis/static/js/453.5c22997c.chunk.js",
+    "static/media/data.csv": "/fuel-data-analysis/static/media/data.90a2d351cf412c9cc78e.csv",
+    "index.html": "/fuel-data-analysis/index.html",
+    "main.76ac243b.css.map": "/fuel-data-analysis/static/css/main.76ac243b.css.map",
+    "main.03745694.js.map": "/fuel-data-analysis/static/js/main.03745694.js.map",
+    "453.5c22997c.chunk.js.map": "/fuel-data-analysis/static/js/453.5c22997c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76ac243b.css",
-    "static/js/main.332b5b52.js"
+    "static/js/main.03745694.js"
   ]
 }
