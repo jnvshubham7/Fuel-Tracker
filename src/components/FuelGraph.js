@@ -1,10 +1,10 @@
-// src/components/FuelGraph.js
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import 'chartjs-plugin-zoom';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 Chart.register(...registerables);
+Chart.register(zoomPlugin);
 
 const FuelGraph = ({ fuelData }) => {
   const chartRef = useRef(null);
@@ -35,12 +35,20 @@ const FuelGraph = ({ fuelData }) => {
         pan: {
           enabled: true,
           mode: 'x',
-          modifierKey: 'ctrl',  // Require holding 'ctrl' key to pan
+          modifierKey: 'ctrl', // Require holding 'ctrl' key to pan
         },
         zoom: {
-          enabled: true,
+          wheel: {
+            enabled: true,
+            modifierKey: 'ctrl', // Require holding 'ctrl' key to zoom
+          },
+          drag: {
+            enabled: false, // You can enable drag zoom if needed
+          },
+          pinch: {
+            enabled: false, // You can enable pinch zoom if needed
+          },
           mode: 'x',
-          modifierKey: 'ctrl',  // Require holding 'ctrl' key to zoom
         },
       },
     },
