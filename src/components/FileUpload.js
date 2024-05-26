@@ -24,22 +24,21 @@ const FileUpload = ({ onFileLoaded }) => {
         style={{ display: 'none' }}
         id="upload-file"
       />
-      <label htmlFor="upload-file">
-        <span
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontSize: '16px',
-            display: 'inline-block',
-          }}
-        >
-          Upload New CSV
-        </span>
-      </label>
+      <button
+        onClick={() => document.getElementById('upload-file').click()}
+        style={{
+          padding: '10px 20px',
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          fontSize: '16px',
+          display: 'inline-block',
+        }}
+      >
+        Upload New CSV
+      </button>
     </div>
   );
 };

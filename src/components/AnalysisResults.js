@@ -1,4 +1,3 @@
-// src/components/AnalysisResults.js
 import React from 'react';
 
 const AnalysisResults = ({ fuelData }) => {
@@ -49,6 +48,9 @@ const AnalysisResults = ({ fuelData }) => {
   const refuelingEvents = identifyRefuelingEvents(fuelData);
   const totalFuelFilled = calculateTotalFuelFilled(refuelingEvents);
   const averageFuelConsumption = calculateAverageFuelConsumption(fuelData);
+
+  if(fuelData.length === 0) return null;
+  if(refuelingEvents.length === 0) return null;
 
   return (
     <div>

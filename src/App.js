@@ -38,9 +38,15 @@ const App = () => {
   return (
     <div className="App">
       <h1>Fuel Data Analysis</h1>
-      <FileUpload onFileLoaded={handleFileLoaded} />
+      <div className="top-container">
+        <div className="card">
+          <FileUpload onFileLoaded={handleFileLoaded} />
+        </div>
+        <div className="card">
+          {fuelData.length > 0 && <AnalysisResults fuelData={fuelData} />}
+        </div>
+      </div>
       {fuelData.length > 0 && <FuelGraph fuelData={fuelData} />}
-      {fuelData.length > 0 && <AnalysisResults fuelData={fuelData} />}
     </div>
   );
 };
