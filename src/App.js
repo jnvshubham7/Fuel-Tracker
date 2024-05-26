@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import FuelGraph from './components/FuelGraph';
-import AnalysisResults from './components/AnalysisResults';
 import FileUpload from './components/FileUpload';
 import './App.css';
 import initialFile from './data/data.csv';
