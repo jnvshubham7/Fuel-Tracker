@@ -35,10 +35,12 @@ const FuelGraph = ({ fuelData }) => {
         pan: {
           enabled: true,
           mode: 'x',
+          modifierKey: 'ctrl',  // Require holding 'ctrl' key to pan
         },
         zoom: {
           enabled: true,
           mode: 'x',
+          modifierKey: 'ctrl',  // Require holding 'ctrl' key to zoom
         },
       },
     },
