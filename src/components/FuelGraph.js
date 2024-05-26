@@ -1,3 +1,5 @@
+// src/components/FuelGraph.js
+
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
@@ -16,7 +18,9 @@ const FuelGraph = ({ fuelData }) => {
         label: 'Fuel Level',
         data: fuelData.map(entry => entry.currentFuelLevel),
         borderColor: 'rgba(75, 192, 192, 1)',
-        fill: false,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+        tension: 0.1,
       },
     ],
   };
@@ -28,9 +32,32 @@ const FuelGraph = ({ fuelData }) => {
         time: {
           unit: 'minute',
         },
+        title: {
+          display: true,
+          text: 'Time',
+          color: '#ffffff',
+        },
+        ticks: {
+          color: '#ffffff',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Fuel Level (liters)',
+          color: '#ffffff',
+        },
+        ticks: {
+          color: '#ffffff',
+        },
       },
     },
     plugins: {
+      legend: {
+        labels: {
+          color: '#ffffff',
+        },
+      },
       zoom: {
         pan: {
           enabled: true,
@@ -43,10 +70,10 @@ const FuelGraph = ({ fuelData }) => {
             modifierKey: 'ctrl', // Require holding 'ctrl' key to zoom
           },
           drag: {
-            enabled: true, // You can enable drag zoom if needed
+            enabled: true, // Enable drag zoom
           },
           pinch: {
-            enabled: true, // You can enable pinch zoom if needed
+            enabled: true, // Enable pinch zoom
           },
           mode: 'x',
         },

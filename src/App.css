@@ -1,3 +1,5 @@
+/* src/App.css */
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -8,6 +10,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  padding: 20px;
 }
 
 .top-container {
@@ -15,6 +18,7 @@
   justify-content: space-between;
   width: 80%;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -23,7 +27,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin: 10px;
-  flex: 1;
+  flex: 1 1 calc(50% - 20px);
 }
 
 h1 {
@@ -32,4 +36,29 @@ h1 {
 
 h2 {
   margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: white;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #666;
+}
+
+td {
+  text-align: center;
+}
+
+.graph-card {
+  width: 100%;
+  max-width: 800px;
 }
