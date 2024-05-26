@@ -43,10 +43,10 @@ const FuelGraph = ({ fuelData }) => {
             modifierKey: 'ctrl', // Require holding 'ctrl' key to zoom
           },
           drag: {
-            enabled: false, // You can enable drag zoom if needed
+            enabled: true, // You can enable drag zoom if needed
           },
           pinch: {
-            enabled: false, // You can enable pinch zoom if needed
+            enabled: true, // You can enable pinch zoom if needed
           },
           mode: 'x',
         },

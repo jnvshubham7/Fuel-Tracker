@@ -49,8 +49,7 @@ const AnalysisResults = ({ fuelData }) => {
   const totalFuelFilled = calculateTotalFuelFilled(refuelingEvents);
   const averageFuelConsumption = calculateAverageFuelConsumption(fuelData);
 
-  if(fuelData.length === 0) return null;
-  if(refuelingEvents.length === 0) return null;
+  
 
   return (
     <div>
