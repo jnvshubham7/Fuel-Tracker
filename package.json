@@ -2,6 +2,9 @@
   "name": "fuel-data-analysis",
   "version": "0.1.0",
   "private": true,
+  
+  "homepage": "https://github.com/jnvshubham7/fuel-data-analysis",
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -9,6 +12,7 @@
     "chart.js": "^4.4.3",
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-zoom": "^2.0.1",
+    "gh-pages": "^6.1.1",
     "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
@@ -21,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,4 +47,9 @@
       "last 1 safari version"
     ]
   }
+
+
+  
+  
+
 }
