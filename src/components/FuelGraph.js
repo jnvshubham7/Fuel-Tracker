@@ -1,5 +1,3 @@
-// src/components/FuelGraph.js
-
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
@@ -30,7 +28,11 @@ const FuelGraph = ({ fuelData }) => {
       x: {
         type: 'time',
         time: {
+          tooltipFormat: 'MMM d, yyyy, h:mm:ss a',
           unit: 'minute',
+          displayFormats: {
+            minute: 'MMM d, h:mm a',
+          },
         },
         title: {
           display: true,

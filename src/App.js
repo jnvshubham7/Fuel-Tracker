@@ -7,7 +7,7 @@ import initialFile from './data/data.csv';
 import FuelMetricsTable from './components/FuelMetricsTable';
 import calculateAverageFuelConsumption from './utils/calculateAverageFuelConsumption';
 import AverageFuelConsumptionGraph from './components/AverageFuelConsumptionGraph';
-import FuelConsumption from './components/FuelConsumption';
+
 
 const App = () => {
   const [fuelData, setFuelData] = useState([]);

@@ -27,7 +27,11 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
       x: {
         type: 'time',
         time: {
+          tooltipFormat: 'MMM d, yyyy, h:mm:ss a',
           unit: 'hour',
+          displayFormats: {
+            hour: 'MMM d, h:mm a',
+          },
         },
         title: {
           display: true,
