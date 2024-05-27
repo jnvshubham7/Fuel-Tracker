@@ -1,5 +1,3 @@
-// src/components/FuelConsumption.js
-
 import React from 'react';
 
 const FuelConsumption = ({ fuelData }) => {
@@ -15,7 +13,7 @@ const FuelConsumption = ({ fuelData }) => {
 
       if (currentLevel < previousLevel) {
         totalFuelConsumed += previousLevel - currentLevel;
-        totalDuration += (currentTimestamp - previousTimestamp) / (1000 * 60 * 60); // convert ms to hours
+        totalDuration += (currentTimestamp - previousTimestamp) / (1000 * 60 * 60); 
       }
 
       previousLevel = currentLevel;
