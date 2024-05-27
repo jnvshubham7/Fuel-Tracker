@@ -2,6 +2,10 @@
 
 Fuel Tracker is a React-based web application designed to analyze and visualize fuel consumption data. It allows users to upload CSV files containing fuel data, and provides various metrics and graphs to help understand fuel consumption patterns over time.
 
+## Deployment
+
+## [View the Deployed Application Here](https://jnvshubham7.github.io/fuel-data-analysis/)
+
 ## Features
 
 - **CSV File Upload**: Easily upload a CSV file containing fuel data.
@@ -82,17 +86,54 @@ gpsLedgerId,currentFuelLevel,isIgnitionOn,eventDate,eventGeneratedTime
 ...
 ```
 
-## Deployment
+## File Structure
 
-The app can be deployed to GitHub Pages. The current deployment can be found [here](https://jnvshubham7.github.io/fuel-data-analysis/).
+```plaintext
+fuel-data-analysis/
+│
+├── src/
+│   ├── components/
+│   │   ├── AverageFuelConsumptionGraph.js
+│   │   ├── FileUpload.js
+│   │   ├── FuelGraph.js
+│   │   ├── FuelMetricsTable.js
+│   │
+│   ├── data/
+│   │   └── data.csv
+│   │
+│   ├── utils/
+│   │   └── calculateAverageFuelConsumption.js
+│   │
+│   ├── App.js
+│   ├── index.js
+│
+├── .gitignore
+├── package.json
+├── README.md
+```
+
+### Explanation
+
+- `src/`: Contains the source code of the application.
+  - `components/`: Contains the React components used in the application.
+    - `AverageFuelConsumptionGraph.js`: Component for displaying the average fuel consumption graph.
+    - `FileUpload.js`: Component for handling CSV file uploads.
+    - `FuelGraph.js`: Component for displaying the fuel level graph.
+    - `FuelMetricsTable.js`: Component for displaying fuel consumption metrics in a table.
+  - `data/`: Contains initial data files.
+    - `data.csv`: Example CSV data file.
+  - `utils/`: Contains utility functions.
+    - `calculateAverageFuelConsumption.js`: Utility function for calculating average fuel consumption.
+  - `App.js`: Main App component that integrates all other components.
+  - `index.js`: Entry point of the application.
+
+- `.gitignore`: Specifies files and directories to be ignored by Git.
+- `package.json`: Specifies project details and dependencies.
+- `README.md`: Contains information about the project.
 
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any improvements.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Acknowledgements
 
