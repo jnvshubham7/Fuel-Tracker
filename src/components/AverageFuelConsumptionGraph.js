@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
-Chart.register(...registerables);
+Chart.register(...registerables, zoomPlugin);
 
 const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
   const chartRef = useRef(null);
@@ -23,6 +24,8 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
   };
 
   const options = {
+    maintainAspectRatio: false,
+    responsive: true,
     scales: {
       x: {
         type: 'time',
@@ -63,18 +66,18 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
         pan: {
           enabled: true,
           mode: 'x',
-          modifierKey: 'ctrl', // Require holding 'ctrl' key to pan
+          modifierKey: 'ctrl',
         },
         zoom: {
           wheel: {
             enabled: true,
-            modifierKey: 'ctrl', // Require holding 'ctrl' key to zoom
+            modifierKey: 'ctrl',
           },
           drag: {
-            enabled: true, // Enable drag zoom
+            enabled: true,
           },
           pinch: {
-            enabled: true, // Enable pinch zoom
+            enabled: true,
           },
           mode: 'x',
         },
@@ -91,7 +94,11 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
     };
   }, []);
 
-  return <Line ref={chartRef} data={data} options={options} />;
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+      <Line ref={chartRef} data={data} options={options} />
+    </div>
+  );
 };
 
 export default AverageFuelConsumptionGraph;
