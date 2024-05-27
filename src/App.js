@@ -5,9 +5,13 @@ import FileUpload from './components/FileUpload';
 import './App.css';
 import initialFile from './data/data.csv';
 import FuelMetricsTable from './components/FuelMetricsTable';
+import calculateAverageFuelConsumption from './utils/calculateAverageFuelConsumption';
+import AverageFuelConsumptionGraph from './components/AverageFuelConsumptionGraph';
+import FuelConsumption from './components/FuelConsumption';
 
 const App = () => {
   const [fuelData, setFuelData] = useState([]);
+  const [averageFuelConsumptionData, setAverageFuelConsumptionData] = useState([]);
 
   useEffect(() => {
     const loadInitialFile = () => {
@@ -33,6 +37,7 @@ const App = () => {
       eventGeneratedTime: new Date(entry.eventGeneratedTime).getTime(),
     }));
     setFuelData(formattedData);
+    setAverageFuelConsumptionData(calculateAverageFuelConsumption(formattedData));
   };
 
   return (
@@ -48,7 +53,11 @@ const App = () => {
       </div>
       <div className="card graph-card">
         {fuelData.length > 0 && <FuelGraph fuelData={fuelData} />}
+        </div>
+        <div className="card graph-card">
+      {averageFuelConsumptionData.length > 0 && <AverageFuelConsumptionGraph averageFuelConsumption={averageFuelConsumptionData} />}
       </div>
+
     </div>
   );
 };
