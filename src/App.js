@@ -53,11 +53,10 @@ const App = () => {
       </div>
       <div className="card graph-card">
         {fuelData.length > 0 && <FuelGraph fuelData={fuelData} />}
-        </div>
-        <div className="card graph-card">
-      {averageFuelConsumptionData.length > 0 && <AverageFuelConsumptionGraph averageFuelConsumption={averageFuelConsumptionData} />}
       </div>
-
+      <div className="card graph-card">
+        {averageFuelConsumptionData.length > 0 && <AverageFuelConsumptionGraph averageFuelConsumption={averageFuelConsumptionData} />}
+      </div>
     </div>
   );
 };

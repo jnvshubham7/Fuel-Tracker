@@ -1,38 +1,29 @@
-// src/utils/calculateAverageFuelConsumption.js
+const calculateAverageFuelConsumption = (data) => {
+  const consumptionPerTimestamp = {};
 
-const calculateAverageFuelConsumption = (fuelData) => {
-    const hourlyConsumption = {};
-  
-    fuelData.forEach((entry, index) => {
-      if (index === 0) return; // Skip the first entry
-  
-      const prevEntry = fuelData[index - 1];
-  
-      // Check if the ignition is off and there's a change in fuel level
-      if (!entry.isIgnitionOn && entry.currentFuelLevel !== prevEntry.currentFuelLevel) {
-        const hour = new Date(entry.eventGeneratedTime).getHours();
-        const consumption = prevEntry.currentFuelLevel - entry.currentFuelLevel;
-  
-        if (!hourlyConsumption[hour]) {
-          hourlyConsumption[hour] = {
-            totalConsumption: 0,
-            count: 0,
-          };
-        }
-  
-        hourlyConsumption[hour].totalConsumption += consumption;
-        hourlyConsumption[hour].count += 1;
+  data.forEach((entry, index) => {
+    if (index === 0) return; // Skip the first entry
+
+    const prevEntry = data[index - 1];
+    const timeDiff = (new Date(entry.eventGeneratedTime) - new Date(prevEntry.eventGeneratedTime)) / (1000 * 60 * 60); // time difference in hours
+    const fuelConsumed = prevEntry.currentFuelLevel - entry.currentFuelLevel;
+
+    if (fuelConsumed > 0 && timeDiff > 0) { // Only consider periods with fuel consumption and positive time difference
+      const timestamp = new Date(entry.eventGeneratedTime).toISOString();
+      if (!consumptionPerTimestamp[timestamp]) {
+        consumptionPerTimestamp[timestamp] = { totalFuel: 0, count: 0 };
       }
-    });
-  
-    // Calculate the average consumption per hour
-    const averageConsumption = Object.keys(hourlyConsumption).map(hour => ({
-      hour,
-      average: hourlyConsumption[hour].totalConsumption / hourlyConsumption[hour].count,
-    }));
-  
-    return averageConsumption;
-  };
-  
-  export default calculateAverageFuelConsumption;
-  
+      consumptionPerTimestamp[timestamp].totalFuel += fuelConsumed;
+      consumptionPerTimestamp[timestamp].count += 1;
+    }
+  });
+
+  const averageFuelConsumption = Object.keys(consumptionPerTimestamp).map(timestamp => ({
+    timestamp,
+    average: consumptionPerTimestamp[timestamp].totalFuel / consumptionPerTimestamp[timestamp].count,
+  }));
+
+  return averageFuelConsumption;
+};
+
+export default calculateAverageFuelConsumption;

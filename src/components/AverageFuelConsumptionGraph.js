@@ -1,7 +1,5 @@
-// src/components/AverageFuelConsumptionGraph.js
-
 import React, { useRef, useEffect } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
@@ -10,14 +8,16 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
   const chartRef = useRef(null);
 
   const data = {
-    labels: averageFuelConsumption.map(entry => entry.hour),
+    labels: averageFuelConsumption.map(entry => new Date(entry.timestamp)),
     datasets: [
       {
         label: 'Average Fuel Consumption (liters/hour)',
         data: averageFuelConsumption.map(entry => entry.average),
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: false,
+        tension: 0.1,
       },
     ],
   };
@@ -25,9 +25,13 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
   const options = {
     scales: {
       x: {
+        type: 'time',
+        time: {
+          unit: 'hour',
+        },
         title: {
           display: true,
-          text: 'Hour of the Day',
+          text: 'Time',
           color: '#ffffff',
         },
         ticks: {
@@ -51,6 +55,26 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
           color: '#ffffff',
         },
       },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'x',
+          modifierKey: 'ctrl', // Require holding 'ctrl' key to pan
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+            modifierKey: 'ctrl', // Require holding 'ctrl' key to zoom
+          },
+          drag: {
+            enabled: true, // Enable drag zoom
+          },
+          pinch: {
+            enabled: true, // Enable pinch zoom
+          },
+          mode: 'x',
+        },
+      },
     },
   };
 
@@ -63,7 +87,7 @@ const AverageFuelConsumptionGraph = ({ averageFuelConsumption }) => {
     };
   }, []);
 
-  return <Bar ref={chartRef} data={data} options={options} />;
+  return <Line ref={chartRef} data={data} options={options} />;
 };
 
 export default AverageFuelConsumptionGraph;
